@@ -1,0 +1,148 @@
+<section class="container editar-pensamentos ff-inter">
+  <header class="header">
+    <h2>Edite o seu <br />Pokemon :</h2>
+  </header>
+  <form [formGroup]="formulario">
+    <label style="display: none;" for="pensamento">ID do Pokemon</label>
+    <input style="display: none;"
+      type="text"
+      class="input"
+      id="pensamento"
+      formControlName="id"
+      placeholder="Digite o ID"
+    />
+    <div
+      class="mensagem__erro"
+      *ngIf="formulario.get('id')?.errors && formulario.get('id')?.touched"
+    >
+      Nome do Pokemon é obrigatório
+    </div>
+    <label for="pensamento">Nome do Pokemon</label>
+    <input
+      type="text"
+      class="input"
+      id="pensamento"
+      formControlName="name"
+      placeholder="Digite o nome"
+    />
+    <div
+      class="mensagem__erro"
+      *ngIf="formulario.get('name')?.errors && formulario.get('name')?.touched"
+    >
+      Nome do Pokemon é obrigatório
+    </div>
+    <label for="pensamento">Tipo do Pokemon</label>
+    <select class="input" id="pensamento" formControlName="pokemonType">
+      <option value="">Selecione o tipo</option>
+      <option *ngFor="let type of pokemonTypes" [value]="type">{{ type }}</option>
+    </select>
+    <div class="mensagem__erro"
+      *ngIf="formulario.get('pokemonType')?.errors && formulario.get('pokemonType')?.touched">
+      Tipo do Pokemon é obrigatório
+    </div>
+    <label for="pensamento">HP do Pokemon</label>
+    <input
+      type="number"
+      class="input"
+      id="pensamento"
+      formControlName="hp"
+      placeholder="Digite o HP"
+    />
+    <div
+      class="mensagem__erro"
+      *ngIf="formulario.get('hp')?.errors?.['required'] && formulario.get('hp')?.touched"
+    >
+      HP do pokemon é obrigatório
+    </div>
+    <div
+      class="mensagem__erro"
+      *ngIf="formulario.get('hp')?.errors?.['min'] && formulario.get('hp')?.touched"
+    >
+      HP precisa ser maior que 0 'zero'
+    </div>
+
+    <label for="pensamento">Atack do Pokemon</label>
+    <input
+      type="number"
+      class="input"
+      id="pensamento"
+      formControlName="attack"
+      placeholder="Digite o HP"
+    />
+    <div
+      class="mensagem__erro"
+      *ngIf="formulario.get('attack')?.errors?.['required'] && formulario.get('attack')?.touched"
+    >
+      attack do pokemon é obrigatório
+    </div>
+    <div
+      class="mensagem__erro"
+      *ngIf="formulario.get('attack')?.errors?.['min'] && formulario.get('attack')?.touched"
+    >
+      attack precisa ser maior que 0 'zero'
+    </div>
+
+    <label for="pensamento">defense do Pokemon</label>
+    <input
+      type="number"
+      class="input"
+      id="pensamento"
+      formControlName="defense"
+      placeholder="Digite o HP"
+    />
+    <div
+      class="mensagem__erro"
+      *ngIf="formulario.get('defense')?.errors?.['required'] && formulario.get('defense')?.touched"
+    >
+      defense do pokemon é obrigatório
+    </div>
+    <div
+      class="mensagem__erro"
+      *ngIf="formulario.get('defense')?.errors?.['min'] && formulario.get('defense')?.touched"
+    >
+      defense precisa ser maior que 0 'zero'
+    </div>
+
+    <label for="pensamento">speed do Pokemon</label>
+    <input
+      type="number"
+      class="input"
+      id="pensamento"
+      formControlName="speed"
+      placeholder="Digite o HP"
+    />
+    <div
+      class="mensagem__erro"
+      *ngIf="formulario.get('speed')?.errors?.['required'] && formulario.get('speed')?.touched"
+    >
+      speed do pokemon é obrigatório
+    </div>
+    <div
+      class="mensagem__erro"
+      *ngIf="formulario.get('speed')?.errors?.['min'] && formulario.get('speed')?.touched"
+    >
+      speed precisa ser maior que 0 'zero'
+    </div>
+
+
+        <div class="modelo modelo1 ff-roboto-mono">
+          <p class="conteudo">{{ formulario.get("name")?.value }}</p>
+          <p class="conteudo">{{ formulario.get("pokemonType")?.value }}</p>
+          <p class="conteudo">{{ formulario.get("hp")?.value }}</p>
+          <p class="conteudo">{{ formulario.get("attack")?.value }}</p>
+          <p class="conteudo">{{ formulario.get("defense")?.value }}</p>
+          <p class="conteudo">{{ formulario.get("speed")?.value }}</p>
+        </div>
+    <div class="acoes">
+      <p-button
+      label="Salvar"
+      styleClass="p-button-success"
+        [disabled]="!formulario.valid"
+        (click)="editarProduto()"
+        [ngClass]="habilitarBotao()"
+      >
+      </p-button>
+      <p-button (click)="cancelar()" label="Cancelar" styleClass="p-button-raised p-button-danger"></p-button>
+    </div>
+  </form>
+</section>

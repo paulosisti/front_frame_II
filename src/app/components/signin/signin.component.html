@@ -1,0 +1,51 @@
+<main>
+  <form [formGroup]="form">
+      <label for="pensamento">email</label>
+      <input
+        type="email"
+        class="input"
+        id="pensamento"
+        formControlName="email"
+        placeholder="digite seu e-mail"
+      >
+      <div class="mensagem_erro"
+      *ngIf="form.get('email')?.errors?.['required'] && form.get('email')?.touched">
+        email é obrigatório
+      </div>
+      <label for="pensamento">password</label>
+      <input
+        type="text"
+        class="input"
+        id="pensamento"
+        formControlName="password"
+        placeholder="digite sua senha"
+      >
+      <div class="mensagem_erro"
+      *ngIf="form.get('password')?.errors?.['required'] && form.get('password')?.touched">
+        Password é obrigatório
+      </div>
+      <div class="logando">
+        <p-button label="Recover Password" icon="pi pi-key" [disabled]="!form.get('email')!.valid" *ngIf="!isRecoveringPassword" (click)="recoverPassword()"></p-button>
+      </div>
+      <!-- <div class='aligned-to-right'>
+          <button mat-button color="primary" [disabled]="!form.get('email')!.valid"
+              (click)="recoverPassword()" *ngIf="!isRecoveringPassword"
+              test-id="recover-password-button">
+              Recover password
+          </button>
+          <button mat-button color="primary" class="button-loader recover-password"
+              *ngIf="isRecoveringPassword" test-id="recover-password-loader">
+              <mat-spinner></mat-spinner>
+          </button>
+      </div> -->
+      <div class="logando">
+        <p-button label="Login" icon="pi pi-at"[disabled]="!form.valid" *ngIf="!isLoggingIn" (click)="login()"></p-button>
+      </div>
+      <div *ngIf="loginError" class="error-message">
+        Falha no login. Verifique suas credenciais e tente novamente.
+      </div>
+      <div class="logando">
+        <p-button label="Cadastrar" icon="pi pi-user"(click)="createUser()"></p-button>
+      </div>
+  </form>
+</main>

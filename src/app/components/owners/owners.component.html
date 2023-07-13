@@ -1,0 +1,20 @@
+<section class="container">
+  <h2>Selecione um treinador</h2>
+  <table>
+    <thead>
+      <tr>
+        <div class = "nameTrainer">
+          <th >Name</th>
+        </div>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let owner of owners" (click)="selectOwner(owner)">
+        <td>
+          <p-button label="{{ owner.name }}" icon="pi pi-user" iconPos="left"></p-button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+

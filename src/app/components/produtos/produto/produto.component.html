@@ -1,0 +1,13 @@
+<div class="pensamento {{ produto?._id }} ff-roboto-mono" >
+  <img class="pokeImage" [src]="imageUrl" [alt]="produto?.name" />
+  <h3 class="autoria"><b>{{ produto?.name }}</b></h3>
+  <p class="conteudo">type: {{ produto?.pokemonType }}</p>
+  <p class="conteudo">hp: {{ produto?.hp }}</p>
+  <p class="conteudo">attack: {{ produto?.attack }}</p>
+  <p class="conteudo">defense: {{ produto?.defense }}</p>
+  <p class="conteudo">speed: {{ produto?.speed }}</p>
+  <div class="acoes">
+    <p-button class="botao-editar" styleClass="p-button-rounded p-button-info" routerLink="/produtos/editarProduto/{{produto?._id}}" label="Editar"></p-button>
+    <p-button class="botao-excluir" styleClass="p-button-rounded p-button-danger" routerLink="/produtos/excluirProduto/{{produto?._id}}" label="Excluir"></p-button>
+  </div>
+</div>

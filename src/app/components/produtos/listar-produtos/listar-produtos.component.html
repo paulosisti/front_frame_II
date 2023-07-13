@@ -1,0 +1,17 @@
+<section *ngIf="selectedOwner" class="container">
+  <header class="header d-flex">
+    <h2 class="ff-inter">Seus Pokemons</h2>
+    <p-button class="botao" styleClass="p-button-rounded p-button-success" routerLink="/criarProduto/{{ownerId}}" label="Adicionar Pokemons"></p-button>
+  </header>
+  <div class="mural" *ngIf="selectedOwner">
+    <div *ngFor="let pokemon of pokemons | paginate: { itemsPerPage: 8, currentPage: paginaAtual }">
+     <app-produto [produto]="pokemon"></app-produto>
+    </div>
+  </div>
+  <pagination-controls (pageChange)="paginaAtual = $event"></pagination-controls>
+  <ng-template #semPensamentos>
+    <div class="ff-inter sem-pensamentos">
+      <p>Ainda não há pokemons cadastrados</p>
+    </div>
+  </ng-template>
+</section>

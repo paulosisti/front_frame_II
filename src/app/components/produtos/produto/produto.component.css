@@ -1,0 +1,73 @@
+.acoes {
+  text-align: center;
+}
+
+.botao-editar {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  margin-right: 10px;
+  margin-top: 10px;
+}
+
+.pensamento {
+  background-color: #f0f0f0;
+  padding: 1rem;
+  box-sizing: border-box;
+  border-radius: 30px;
+  transition: 0.5s ease;
+}
+
+.pensamento:hover {
+  background: rgb(255,255,255);
+  background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(195,242,162,1) 100%);
+}
+
+.pensamento .conteudo {
+  margin: 1rem auto;
+  word-wrap: break-word;
+  margin-left: 1rem;
+}
+
+.conteudo{
+  margin-left: 2rem;
+}
+
+.pensamento .autoria {
+  word-wrap: break-word;
+  text-align: center;
+}
+
+.pokeImage{
+  width: 50%;
+  height: 50%;
+  margin-left: 48px
+}
+
+.modelo1 {
+  box-shadow: 8px 8px 0px rgb(247, 17, 78);
+}
+
+.pensamento-g {
+  width: 556px;
+}
+
+.pensamento-p {
+  width: 262px;
+  transition: ease 0.2s;
+}
+
+.pensamento-p:hover {
+  box-shadow: 5px 5px #c2c2c2;
+}
+
+@media screen and (max-width: 768px) {
+  .pensamento-g {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 426px) {
+  .pensamento-p {
+    width: 100%;
+  }
+}

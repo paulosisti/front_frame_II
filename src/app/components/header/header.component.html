@@ -1,0 +1,8 @@
+<header class="cabecalho ff-inter">
+  <div class="logo">
+      <img src="../../../assets/images/pokebola.svg" alt="logo da aplicação"/>
+  </div>
+  <div class="signout">
+    <p-button label="Sign Out" [loading]="loading" styleClass="p-button-help" *ngIf="isLoggedIn" (click)="signOut()"></p-button>
+  </div>
+</header>
